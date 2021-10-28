@@ -11,6 +11,8 @@
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
+ 
+    font-family: $FONT-SPACE;
 }
 
 #root
@@ -22,6 +24,9 @@
  
     background-color: $PRETO;
     color: $P-LETRAS;
+
+    // overflow-x: hidden;
+    // overflow-y: hidden;
 }
 
 .main

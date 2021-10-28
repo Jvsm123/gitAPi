@@ -1,4 +1,6 @@
 /* APP */
+    @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
  
     $AZUL: #0078FD;
  
@@ -15,6 +17,9 @@
     $P-DESC: #ADB7CD;
     $P-OFF: #4B5770;
     $P-CARD: #1F2A48;
+ 
+    $FONT-DM: "DM Mono", sans-serif;
+    $FONT-SPACE: "Space Mono", sans-serif;
  
 /* BREAKPOINTS */
 $BREAKPOINT-DESK: "only screen and (min-width: 1280px)";

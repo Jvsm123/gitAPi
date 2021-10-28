@@ -6,39 +6,42 @@
  
     border-radius: 6px;
  
+    min-height: 10%;
     width: 100%;
     padding: 1% 2%;
     margin-bottom: 3%;
  
     background-color: $P-CARD;
-
+ 
     .barra-pesquisa
     {
         display: flex;
         flex-direction: row;
- 
+     
         img { margin-right: 10% };
-
+     
         input
         {
             background-color: $P-CARD;
-
+         
             color: $P-LETRAS;
-
+         
             font-size: 12pt;
             font-weight: bold;
         }
     }
-
+ 
     button
     {
         padding: 1%;
-
+     
         color: $P-LETRAS;
         background-color: $AZUL;
-
+     
         border-radius: 6px;
-
+     
         font-weight: bold;
+
+        &:hover { cursor: pointer };
     }
 }

@@ -3,16 +3,23 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
- 
+
     width: 100%;
     margin-bottom: 2%;
-}
 
-.switch
-{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    h1
+    {
+        font-family: $FONT-SPACE;
+        font-weight: bold;
+        font-size: 22pt;
+    }
 
-    width: 10%;
+    .switch
+    {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        width: 15%;
+    }
 }

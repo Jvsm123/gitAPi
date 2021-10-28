@@ -1,15 +1,16 @@
-import React from 'react';
+import * as React from 'react';
 
-import Logo from './comp/logo';
-import Pesquisa from './comp/pesquisa';
-import Perfil from './comp/perfil';
+import Logo from './comp/Logo';
+import Pesquisa from './comp/Pesquisa';
+import Perfil from './comp/Perfil';
 
 export default class App extends React.Component
 {
-    render()
+    render(): React.ReactElement<any, any>
     {
         return(
             <div className="main">
+
                 <Logo/>
                 <Pesquisa/>
                 <Perfil/>
