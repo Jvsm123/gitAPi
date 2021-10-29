@@ -28,7 +28,6 @@ export default class Pesquisa extends React.Component< Props, State >
                 ( !res )
                     ? alert("Usuário não Existe!")
                     : this.props.setUser({user: res.data});
-                console.log( res.data );
             });
         }
         else alert("ERRO, Você não passou um usuário válido!");
