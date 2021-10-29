@@ -1,42 +1,40 @@
 import * as React from 'react';
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 
 import Search from '../assets/img/search.svg';
-import Global from '../global/Global';
 
-type state = Readonly<{ valor: string }>;
+type State = { valor: string };
+type Props = { user: AxiosResponse | null, setUser: any };
 
 //Props, State
-export default class Pesquisa extends React.Component<{}, state>
+export default class Pesquisa extends React.Component< Props, State >
 {
-    constructor( props: React.Props<void> )
-    {
-        super( props );
-     
-        this.state = { valor: '' };
-    };
+    //this.state sem constructor
+    state: State = { valor: '' };
  
     setValor( valores: string ): void
     {
-        this.setState( () =>
-        {
-            return { valor: valores };
-        });
+        this.setState({ valor: valores });
     };
  
     Api( valor: string ): void
     {
-        const url: string = `https://api.github.com/users/${valor}`;
-
-        axios.get(url).then( ( res ) =>
+        if(valor)
         {
-            ( !res )
-                ? console.log(res)
-                : Global.user = res;
-        });
+            const url: string = `https://api.github.com/users/${valor}`;
+         
+            axios.get( url ).then( ( res: AxiosResponse ) =>
+            {
+                ( !res )
+                    ? alert("Usuário não Existe!")
+                    : this.props.setUser({user: res.data});
+                console.log( res.data );
+            });
+        }
+        else alert("ERRO, Você não passou um usuário válido!");
     };
  
-    render(): React.ReactElement<any, any>
+    render(): React.ReactElement<HTMLElement>
     {
         return (
             <div className="pesquisa">

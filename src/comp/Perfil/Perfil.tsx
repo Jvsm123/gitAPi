@@ -1,53 +1,56 @@
-import React from 'react';
+import * as React from 'react';
 
-import Link from '../assets/img/link-45deg.svg';
-import Build from '../assets/img/building.svg';
-import Twitter from '../assets/img/twitter.svg';
-import Geo from '../assets/img/geo-alt-fill.svg';
+import Link from '../../assets/img/link-45deg.svg';
+import Build from '../../assets/img/building.svg';
+import Twitter from '../../assets/img/twitter.svg';
+import Geo from '../../assets/img/geo-alt-fill.svg';
 
-import Octo from '../assets/img/Octocat.png';
+type Props = { user: any };
 
-export default class Perfil extends React.Component
+export default class Perfil extends React.Component<Props, {}>
 {
-    constructor( props: any ) { super( props ) };
- 
-    render(): any
+    render(): React.ReactElement<HTMLElement>
     {
+        const tw: String = this.props.user.twitter_username || "Not Available";
+        const comp: String = this.props.user.company || "Not Available";
+        const link: String = this.props.user.html_url || "Not Available";
+        const geo: String = this.props.user.location || "Not Available";
+
         return (
             <div className="perfil">
                 <aside>
-                    <img id="Octo" src={Octo} alt="#"/>
+                    <img
+                        id="Octo"
+                        src={this.props.user.avatar_url}
+                        alt="#"
+                    />
                 </aside>
              
                 <div className="perfilAspec">
                     <div className="detalhes">
                         <div className="user">
-                            <h2>The Octocat</h2>
-                            <a href="#">octocat</a>
+                            <h2>{this.props.user.login}</h2>
+                            <a href="#">{this.props.user.name}</a>
                         </div>
-                        <p>Joined 25 Jan 2011</p>
+                        <p>{this.props.user.created_at}</p>
                     </div>
                  
                     <div className="desc">
-                        <h4>
-                            Dolor ea quidem aut corporis labore?
-                            Ipsa fugit rem iure voluptas explicabo
-                            Molestiae facilis dolores quam neque
-                        </h4>
+                        <h4>{this.props.user.bio}</h4>
                     </div>
                  
                     <div className="gitinfos">
                         <div className="repos">
                             <h4>Repos</h4>
-                            <h3>8</h3>
+                            <h3>{this.props.user.public_repos}</h3>
                         </div>
                         <div className="followers">
                             <h4>Followers</h4>
-                            <h3>3938</h3>
+                            <h3>{this.props.user.followers}</h3>
                         </div>
                         <div className="following">
                             <h4>Following</h4>
-                            <h3>9</h3>
+                            <h3>{this.props.user.following}</h3>
                         </div>
                     </div>
                  
@@ -56,30 +59,30 @@ export default class Perfil extends React.Component
                             <div className="mediaInfo">
                                 <p>
                                     <img src={Geo} alt="Geo"/>
-                                    San Francisco
+                                    {geo}
                                 </p>
                             </div>
-                     
+                         
                             <div className="mediaInfo end">
                                 <p>
                                     <img src={Link} alt="Link"/>
-                                    https://github.blog
+                                    {link}
                                 </p>
                             </div>
                         </div>
-
+                     
                         <div className="right">
                             <div className="mediaInfo">
                                 <p>
                                     <img src={Twitter} alt="Twitter"/>
-                                    Not Available
+                                    {tw}
                                 </p>
                             </div>
-                     
+                         
                             <div className="mediaInfo end">
                                 <p>
                                     <img src={Build} alt="Build"/>
-                                    agithub
+                                    {comp}
                                 </p>
                             </div>
                         </div>

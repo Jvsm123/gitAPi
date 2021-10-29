@@ -3,48 +3,22 @@ import * as React from 'react';
 import Light from '../assets/img/brightness-high.svg';
 import Black from '../assets/img/moon.svg';
 
-type Switch =
+type Switch = { tipo: string, interr: boolean };
+
+//Props, State são obrigatórios!
+export default class Logo extends React.Component <{}, Switch> 
 {
-    readonly tipo: string,
-    readonly interr: boolean
-};
-
-type ReadonlySwitch = Readonly<Switch>;
-
-//Props, State
-export default class Logo extends React.Component <{}, ReadonlySwitch> 
-{
-    constructor( props: any )
-    {
-        super( props );
-
-        //não há necessidade do useState
-        this.state =
-        {
-            tipo: "LIGTH",
-            interr: true
-        };
-    };
+    //não há necessidade do useState, nem constructor
+    state: Switch = { tipo: "LIGTH", interr: true };
 
     toggle( obj: Switch ): void
     {
-        if(obj.tipo === "LIGTH") this.setState( () =>
-        {
-            return {
-                tipo: "BLACK",
-                interr: false
-            };
-        });
-        else this.setState( () =>
-        {
-            return {
-                tipo: "LIGTH",
-                interr: true
-            };
-        });
+        (obj.tipo === "LIGTH")
+            ? this.setState({ tipo: "BLACK", interr: !this.state.interr })
+            : this.setState({ tipo: "LIGTH", interr: !this.state.interr });
     };
  
-    render(): React.ReactElement<any, any>
+    render(): React.ReactElement<HTMLElement>
     {
         return (
             <div className="logo">
