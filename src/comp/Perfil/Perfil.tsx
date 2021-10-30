@@ -7,7 +7,7 @@ import Geo from '../../assets/img/geo-alt-fill.svg';
 
 type Props = { user: any };
 
-export default class Perfil extends React.Component<Props, {}>
+export default class Perfil extends React.Component< Props, {} >
 {
     render(): React.ReactElement<HTMLElement>
     {

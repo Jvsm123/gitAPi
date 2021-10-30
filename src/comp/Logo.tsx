@@ -6,7 +6,7 @@ import Black from '../assets/img/moon.svg';
 type Switch = { tipo: string, interr: boolean };
 
 //Props, State são obrigatórios!
-export default class Logo extends React.Component <{}, Switch> 
+export default class Logo extends React.Component < {}, Switch > 
 {
     //não há necessidade do useState, nem constructor
     state: Switch = { tipo: "LIGTH", interr: true };
