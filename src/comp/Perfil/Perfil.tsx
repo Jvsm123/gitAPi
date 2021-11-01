@@ -15,7 +15,12 @@ export default class Perfil extends React.Component< Props, {} >
         const comp: String = this.props.user.company || "Not Available";
         const link: String = this.props.user.html_url || "Not Available";
         const geo: String = this.props.user.location || "Not Available";
-
+        const created: String = this.props.user.created_at || "Not Available";
+        const reg: RegExpMatchArray | any = created.match(/([0-9]+)-([0-9]+)-([0-9]+)/gi);
+        const meses: Array<String> = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
+        const date: Date = new Date(reg.join(''));
+        const created_at: String = ( (date.getDate()) + " " + (meses[date.getMonth()]) + " " + (date.getFullYear()) )
+     
         return (
             <div className="perfil">
                 <aside>
@@ -30,9 +35,9 @@ export default class Perfil extends React.Component< Props, {} >
                     <div className="detalhes">
                         <div className="user">
                             <h2>{this.props.user.login}</h2>
-                            <a href="#">{this.props.user.name}</a>
+                            <p>{this.props.user.name}</p>
                         </div>
-                        <p>{this.props.user.created_at}</p>
+                        <p>Joined {created_at}</p>
                     </div>
                  
                     <div className="desc">

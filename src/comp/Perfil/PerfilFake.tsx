@@ -24,7 +24,7 @@ export default class Perfil extends Component
                     <div className="detalhes">
                         <div className="user">
                             <h2>The Octocat</h2>
-                            <a href="#">octocat</a>
+                            <p>octocat</p>
                         </div>
                         <p>Joined 25 Jan 2011</p>
                     </div>
