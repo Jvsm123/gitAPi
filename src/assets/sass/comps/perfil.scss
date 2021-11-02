@@ -1,22 +1,26 @@
 .perfil
 {
-    display: flex;
-    flex-direction: row;
- 
     background-color: $P-CARD;
  
     padding: 3%;
  
     border-radius: 6px;
+    display: grid;
+    grid-template-columns: 0.5fr 2fr;
+    grid-template-rows: .2fr .2fr .2fr .1fr;
+    grid-template-areas: 'img perf' 'img desc' 'img repos' 'img media';
  
     aside
     {
-        margin-right: 5%;
+        margin-left: -10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
      
         #Octo
         {
-            max-width: 100%;
-            max-height: 93%;
+            width: 70%;
+            height: 100%;
          
             border-radius: 50%;
         }
@@ -24,15 +28,20 @@
  
     .detalhes
     {
+        grid-area: perf;
+     
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        align-items: center;
      
         .user > p { color: $AZUL };
     }
  
     .desc
     {
+        grid-area: desc;
+     
         margin-top: 5%;
         margin-bottom: 5%;
         color: $P-DESC;
@@ -40,8 +49,9 @@
  
     .gitinfos
     {
+        grid-area: repos;
+
         display: flex;
-        flex-direction: row;
         justify-content: space-between;
      
         padding: 3% 8%;
@@ -55,12 +65,9 @@
  
     .media
     {
+        grid-area: media;
+     
         display: flex;
-     
-        height: 20%;
-     
-        margin-bottom: 5%;
-        margin-top: 30px;
      
         .left
         {
@@ -98,14 +105,56 @@
     }
 }
 
-@media( max-width: 650px )
+@media( max-width: 550px )
 {
-    .perfil { flex-direction: column };
- 
-    .media
-    {
-        flex-direction: column;
+    .perfil
+    { 
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-areas: "img perf" "desc desc" "repos repos" "media media";
      
-        .end { margin-top: 0px };
+        aside
+        {
+            grid-area:  img;
+
+            height: auto;
+            width: 70%;
+
+            margin-left: 0px;
+             
+            #Octo
+            {
+                max-width: 65%;
+                max-height: 100%;
+                width: auto;
+                height: auto;
+            }
+        }
+
+        .detalhes
+        {
+            grid-area: perf;
+            margin-left: -30%;
+        }
+
+        .desc { grid-area: desc };
+        .gitinfos
+        {
+            grid-area: repos;
+            padding: 5% 8%;
+        };
+     
+        .media
+        {
+            grid-area: media;
+
+            height: auto;
+            display: inherit;
+
+            margin-bottom: 0px;
+            margin-top: 0px;
+
+            .end { margin-top: 0% };
+        }
     }
 }
